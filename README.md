@@ -12,9 +12,9 @@
 
 ### Summary
 
-"Static program analysis is the analysis of computer software that is performed without actually executing programs, in contrast with dynamic analysis, which is analysis performed on programs while they are executing." [[1]](#references)
+"Static program analysis is the analysis of computer software that is performed without actually executing programs, in contrast with dynamic analysis, which is analysis performed on programs while they are executing."[[1]](#references)
 
-"Perl::Critic is an extensible framework for creating and applying coding standards to Perl source code. Essentially, it is a static source code analysis engine. Perl::Critic is distributed with a number of Perl::Critic::Policy modules that attempt to enforce various coding guidelines. Most Policy modules are based on Damian Conway's book Perl Best Practices. However, Perl::Critic is not limited to PBP and will even support Policies that contradict Conway. You can enable, disable, and customize those Polices through the Perl::Critic interface. You can also create new Policy modules that suit your own tastes." [[2]](#references)
+"Perl::Critic is an extensible framework for creating and applying coding standards to Perl source code. Essentially, it is a static source code analysis engine. Perl::Critic is distributed with a number of Perl::Critic::Policy modules that attempt to enforce various coding guidelines. Most Policy modules are based on Damian Conway's book Perl Best Practices. However, Perl::Critic is not limited to PBP and will even support Policies that contradict Conway. You can enable, disable, and customize those Polices through the Perl::Critic interface. You can also create new Policy modules that suit your own tastes."[[2]](#references)
 
 So, secureperl is an extension of Perl::Critic that allows anyone to use it anywhere - mainly with Github Actions-, this project is just a study PoC.
 
@@ -60,7 +60,20 @@ $ perl secureperl.pl ../nozaki
 
 ### Using with Github Actions
 
-```
+```yaml
+name: secureperl
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Audit code
+      run: |
+        sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl 
+        curl https://raw.githubusercontent.com/htrgouvea/secureperl/main/secureperl.pl | perl
 ```
 
 ### Contribution
