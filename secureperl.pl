@@ -17,10 +17,7 @@ sub main {
         my @violations = $critic -> critique($file);
 
         if (@violations) {
-            print "
-                \r[-] $file
-                \r[+] @violations
-            \r"; 
+            print "\n[!] $file \n[+] @violations"; 
         }
     }
 }

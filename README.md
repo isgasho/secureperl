@@ -42,16 +42,13 @@ $ perl secureperl.pl ../nozaki
     
 [-] ../nozaki/nozaki.pl
 [+] Two-argument "open" used at line 69, column 13. See page 207 of PBP.
-
             
 [-] ../nozaki/lib/Engine/Fuzzer.pm
 [+] Code before strictures are enabled at line 7, column 5. See page 429 of PBP.
-
             
 [-] ../nozaki/lib/Engine/Parser.pm
 [+] Package declaration must match filename at line 1, column 1. Correct the filename or package statement.
- Code before strictures are enabled at line 6, column 5. See page 429 of PBP.
-
+[+] Code before strictures are enabled at line 6, column 5. See page 429 of PBP.
             
 [-] ../nozaki/lib/Functions/Helper.pm
 [+] Code before strictures are enabled at line 5, column 2. See page 429 of PBP.
