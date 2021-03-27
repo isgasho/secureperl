@@ -1,6 +1,6 @@
 <p align="center">
-  <h2 align="center">secureperl</h2>
-  <p align="center">A simple PoC of a static analyzer for Perl Language</p>
+  <p align="center">SECUREPERL</p>
+  <p align="center">A simple PoC of a static analyzer for Perl Language write in pure Perl.</p>
   <p align="center">
     <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
@@ -12,23 +12,56 @@
 
 ### Summary
 
-A simple PoC of a static analyzer for Perl Language 
+"Static program analysis is the analysis of computer software that is performed without actually executing programs, in contrast with dynamic analysis, which is analysis performed on programs while they are executing." [[1]](#references)
+
+"Perl::Critic is an extensible framework for creating and applying coding standards to Perl source code. Essentially, it is a static source code analysis engine. Perl::Critic is distributed with a number of Perl::Critic::Policy modules that attempt to enforce various coding guidelines. Most Policy modules are based on Damian Conway's book Perl Best Practices. However, Perl::Critic is not limited to PBP and will even support Policies that contradict Conway. You can enable, disable, and customize those Polices through the Perl::Critic interface. You can also create new Policy modules that suit your own tastes." [[2]](#references)
+
+So, secureperl is an extension of Perl::Critic that allows anyone to use it anywhere - mainly with Github Actions-, this project is just a study PoC.
 
 ---
 
 ### Download and install
 
 ```bash
-  # Download
-  $ git clone https://github.com/htrgouvea/secureperl && cd secureperl
+# Download
+$ git clone https://github.com/htrgouvea/secureperl && cd secureperl
     
-  # Install libs and dependencies
-  $ sudo cpan install Perl::Critic Path::Iterator::Rule
+# Install libs and dependencies
+$ sudo cpan install Perl::Critic Path::Iterator::Rule
 
-  # Basic use
-  $ perl secureperl.pl ../my-project/ 
+# Basic use
+$ perl secureperl.pl ../my-project/ 
 ```
 ---
+
+### Example of use
+
+```bash
+# Define a source code as a target
+$ perl secureperl.pl ../nozaki 
+    
+[-] ../nozaki/nozaki.pl
+[+] Two-argument "open" used at line 69, column 13. See page 207 of PBP.
+
+            
+[-] ../nozaki/lib/Engine/Fuzzer.pm
+[+] Code before strictures are enabled at line 7, column 5. See page 429 of PBP.
+
+            
+[-] ../nozaki/lib/Engine/Parser.pm
+[+] Package declaration must match filename at line 1, column 1. Correct the filename or package statement.
+ Code before strictures are enabled at line 6, column 5. See page 429 of PBP.
+
+            
+[-] ../nozaki/lib/Functions/Helper.pm
+[+] Code before strictures are enabled at line 5, column 2. See page 429 of PBP.
+```
+---
+
+### Using with Github Actions
+
+```
+```
 
 ### Contribution
 
@@ -39,3 +72,9 @@ A simple PoC of a static analyzer for Perl Language
 ### License
 
 - This work is licensed under [MIT License.](/LICENSE.md)
+
+
+### References
+
+1. [https://en.wikipedia.org/wiki/Static_program_analysis](https://en.wikipedia.org/wiki/Static_program_analysis)
+2. [https://metacpan.org/pod/Perl::Critic](https://metacpan.org/pod/Perl::Critic)
