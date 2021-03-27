@@ -28,9 +28,6 @@ $ git clone https://github.com/htrgouvea/secureperl && cd secureperl
     
 # Install libs and dependencies
 $ sudo cpan install Perl::Critic Path::Iterator::Rule
-
-# Basic use
-$ perl secureperl.pl ../my-project/ 
 ```
 ---
 
