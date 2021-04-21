@@ -1,0 +1,16 @@
+name: 'secureperl'
+author: 'htrgouvea'
+description: 'A static analyzer for Perl Language'
+
+branding:
+  icon: 'shield'
+  color: 'black'
+
+inputs:
+    target:
+        description: 'define a source code to analyze'
+        required: true
+
+runs:
+    using: 'perl'
+    main: 'dist/index.js'

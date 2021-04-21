@@ -1,6 +1,6 @@
 <p align="center">
   <p align="center">SECUREPERL</p>
-  <p align="center">A simple PoC of a static analyzer for Perl Language write in pure Perl.</p>
+  <p align="center">A static analyzer for Perl Language write in pure Perl.</p>
   <p align="center">
     <a href="/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
@@ -65,9 +65,11 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Audit code
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl 
-        curl https://raw.githubusercontent.com/htrgouvea/secureperl/main/secureperl.pl | perl
+        curl -s https://raw.githubusercontent.com/htrgouvea/secureperl/main/secureperl.pl | perl
 ```
 
 ### Contribution
