@@ -13,6 +13,6 @@ inputs:
         
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/htrgouvea/secureperl:1.0'
+  image: 'docker://ghcr.io/htrgouvea/secureperl:latest'
   args:
     - ${{ inputs.target }}
