@@ -10,7 +10,9 @@ inputs:
     target:
         description: 'define a source code to analyze'
         required: true
-
+        
 runs:
-    using: 'perl'
-    main: 'dist/index.js'
+  using: 'docker'
+  image: 'docker://ghcr.io/htrgouvea/secureperl:1.0'
+  args:
+    - ${{ inputs.target }}

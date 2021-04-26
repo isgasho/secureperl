@@ -8,11 +8,10 @@ use Path::Iterator::Rule;
 use Getopt::Long qw(:config no_ignore_case);
 
 sub main {
-    my (@target, $notify);
+    my (@target);
 
     GetOptions (
         "t|target=s"   => \@target,
-        "n|notify=f"   => \$notify
     );
 
     my $rule = Path::Iterator::Rule -> new() -> file() -> not_empty();
@@ -25,11 +24,7 @@ sub main {
         my @violations = $critic -> critique($file);
 
         if (@violations) {
-            print "\n[!] $file \n[+] @violations"; 
-
-            if ($notify) {
-                # secrets.GIT_TOKEN
-            }
+            print "\n[!] $file \n[+] @violations";
         }
     }
 }
