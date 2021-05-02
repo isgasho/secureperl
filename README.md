@@ -33,7 +33,7 @@ $ sudo cpan install Perl::Critic Path::Iterator::Rule
 
 ### Example of use
 
-```bash
+```
 # Define a source code as a target
 $ perl secureperl.pl ../nozaki 
     
